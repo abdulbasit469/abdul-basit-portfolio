@@ -1,43 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Basit Attique Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .fiverr-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1dbf73;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .fiverr-letter:hover {
+            transform: scale(1.2);
+        }
+        .skill-card, .contact-card {
+            background: linear-gradient(135deg, #1a2a44 0%, #1e3a8a 100%);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 10px rgba(29, 78, 216, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover, .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 15px rgba(29, 78, 216, 0.4);
+        }
+        .skill-card i, .contact-card i, .contact-card span {
+            color: #10b981;
+        }
+        .skill-card p, .contact-card p {
+            color: #ffffff;
+        }
+        .recommendation-container {
+            overflow: hidden;
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .recommendation-slider {
+            display: flex;
+            animation: slide 20s infinite linear;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .recommendation-card {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 10px rgba(59, 130, 246, 0.3);
+            width: 300px;
+            height: 300px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="bg-green-600 p-4 fixed w-full top-0 z-10 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold">Abdul Basit Attique</div>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="text-white font-semibold hover:text-green-300">About</a></li>
+                <li><a href="#education" class="text-white font-semibold hover:text-green-300">Education</a></li>
+                <li><a href="#experience" class="text-white font-semibold hover:text-green-300">Experience</a></li>
+                <li><a href="#skills" class="text-white font-semibold hover:text-green-300">Skills</a></li>
+                <li><a href="#projects" class="text-white font-semibold hover:text-green-300">Projects</a></li>
+                <li><a href="#contact" class="text-white font-semibold hover:text-green-300">Contact</a></li>
+                <li><a href="#recommendations" class="text-white font-semibold hover:text-green-300">Recommendations</a></li>
+            </ul>
+        </div>
+    </nav>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <!-- Hero Section -->
+    <section id="hero" class="pt-24 pb-12 bg-black text-center">
+        <div class="container mx-auto flex items-center">
+            <img src="../pic1.jpg" alt="Abdul Basit Attique" class="w-90 h-80 rounded-lg ml-4 mr-16 bounce" onerror="this.onerror=null; this.src='https://via.placeholder.com/128'; console.log('Image load error: ', this.src, ' - 404 detected');">
+            <div class="text-center bounce">
+                <h1 class="text-4xl font-bold text-green-500">Hi I'm Abdul Basit Attique</h1>
+                <p class="mt-4 max-w-2xl">
+                    As a Computer Science student, I'm passionate about technology and have a solid foundation in programming, data structures, and software engineering. With hands-on experience in Python, Java, HTML5, CSS3, and C++, I've worked on projects in image processing, data manipulation, and web development. I bring strong problem-solving, analytical, and communication skills to collaborative projects. Eager to embrace new challenges, I'm excited about contributing to the dynamic field of computer science and exploring career opportunities aligned with my goals. Let's connect and explore new possibilities!
+                </p>
+            </div>
+        </div>
+    </section>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <!-- Sections -->
+    <div class="container mx-auto py-12 space-y-12">
+        <!-- Education -->
+        <section id="education" class="bg-black p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-green-500 border-b-2 border-green-500 pb-2">Education</h2>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Bachelor's in Computer Science</h3>
+                <p class="mt-2">COMSATS University Islamabad Wah Campus</p>
+            </div>
+        </section>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+        <!-- Experience -->
+        <section id="experience" class="bg-black p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-green-500 border-b-2 border-green-500 pb-2">Experience</h2>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">N & A Jurists</h3>
+                <p class="mt-2"><strong>Web Developer</strong></p>
+                <ul class="list-disc ml-6 mt-2">
+                    <li>Developed a secure authentication website for N & A Jurists using Next.js and TypeScript delivered with responsive UI.</li>
+                </ul>
+                <p class="mt-4"><strong>Full-stack Developer</strong></p>
+                <ul class="list-disc ml-6 mt-2">
+                    <li>Built a robust admin portal for N & A Jurists using Next.js and TypeScript, managing both front-end design and back-end operations.</li>
+                </ul>
+                <h3 class="text-xl font-semibold mt-4">Khubaib Foundation Pakistan</h3>
+                <p class="mt-2"><strong>Database Developer</strong></p>
+                <ul class="list-disc ml-6 mt-2">
+                    <li>Designed a professional database for Khubaib Foundation using Java, managing front-end service and back-end logic to add, remove, and edit donor and student records.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="bg-black p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-green-500 border-b-2 border-green-500 pb-2">Skills</h2>
+            <div class="mt-4 flex flex-wrap justify-center" style="width: 100%; max-width: 960px;">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <i class="fas fa-code text-2xl mb-2"></i>
+                    <p class="text-sm">Python</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <i class="fas fa-code text-2xl mb-2"></i>
+                    <p class="text-sm">C++</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <i class="fab fa-html5 text-2xl mb-2"></i>
+                    <p class="text-sm">HTML5</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <i class="fas fa-database text-2xl mb-2"></i>
+                    <p class="text-sm">SQL</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <i class="fab fa-css3-alt text-2xl mb-2"></i>
+                    <p class="text-sm">CSS</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <i class="fab fa-js text-2xl mb-2"></i>
+                    <p class="text-sm">JavaScript</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <i class="fab fa-react text-2xl mb-2"></i>
+                    <p class="text-sm">ReactJS</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <i class="fab fa-wordpress text-2xl mb-2"></i>
+                    <p class="text-sm">WordPress</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="bg-black p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-green-500 border-b-2 border-green-500 pb-2">Projects</h2>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold">Client Server Application</h3>
+                <p class="mt-2">Developed a Client-Server application using socket programming where client sends messages and server receives and displays them.</p>
+                <h3 class="text-xl font-semibold mt-4">College Management System</h3>
+                <p class="mt-2">Developed a management system using OracleApex enabling efficient student, faculty and course management.</p>
+                <h3 class="text-xl font-semibold mt-4">Inventory Management System</h3>
+                <p class="mt-2">Developed a web app using Next.js and TypeScript implementing efficient stock tracking, categorization and reporting features.</p>
+                <p class="mt-4">Take a look at my work <a href="https://github.com/abdulbasit469" class="text-green-400 hover:text-green-300" target="_blank">see more</a></p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="bg-black p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-green-500 border-b-2 border-green-500 pb-2">Contact</h2>
+            <div class="mt-4 flex flex-wrap justify-center" style="width: 100%; max-width: 960px;">
+                <div class="contact-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <a href="https://mail.google.com/mail/u/2/#inbox" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
+                        <i class="fas fa-envelope text-2xl mb-2"></i>
+                        <p class="text-sm">Gmail</p>
+                    </a>
+                </div>
+                <div class="contact-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <a href="https://www.linkedin.com/in/abdul-basit-attique-55061a370/" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
+                        <i class="fab fa-linkedin-in text-2xl mb-2"></i>
+                        <p class="text-sm">LinkedIn</p>
+                    </a>
+                </div>
+                <div class="contact-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <a href="https://github.com/abdulbasit469" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
+                        <i class="fab fa-github text-2xl mb-2"></i>
+                        <p class="text-sm">GitHub</p>
+                    </a>
+                </div>
+                <div class="contact-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                    <a href="#" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
+                        <span class="fiverr-letter">F</span>
+                        <p class="text-sm">Fiverr</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section id="recommendations" class="bg-black p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-green-500 border-b-2 border-green-500 pb-2">Recommendations</h2>
+            <div class="recommendation-container mt-4">
+                <div class="recommendation-slider">
+                    <div class="recommendation-card">"Abdul Basit’s web development skills with Next.js and TypeScript are exceptional—highly recommend for any UI/UX project!" - Ali Khan</div>
+                    <div class="recommendation-card">"His full-stack expertise transformed our admin portal into a seamless system—truly a standout developer!" - Sara Ahmed</div>
+                    <div class="recommendation-card">"Designed an outstanding database with Java for us—Abdul’s attention to detail is unmatched!" - Hassan Iqbal</div>
+                    <div class="recommendation-card">"A problem-solving genius! His socket programming skills made our client-server app a success." - Fatima Noor</div>
+                    <div class="recommendation-card">"Abdul’s responsive designs and innovative approach make him a top-tier developer to hire!" - Omar Farooq</div>
+                    <div class="recommendation-card">"Incredible work on our inventory management system—his TypeScript skills are world-class!" - Zainab Malik</div>
+                    <div class="recommendation-card">"Highly skilled in Python and C++—Abdul’s analytical mind is a huge asset!" - Usman Khalid</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 p-4 text-center">
+        <p>© 2025 Abdul Basit Attique | Email: abdulbasitattique89@gmail.com | Phone: +92 333-4602156</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
