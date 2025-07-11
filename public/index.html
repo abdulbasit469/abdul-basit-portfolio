@@ -79,15 +79,55 @@
             transform: translateY(-5px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 15px rgba(59, 130, 246, 0.4);
         }
+        /* Scroll to Top Button */
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        #scrollToTop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scrollToTop:hover {
+            background-color: #0e9a6e;
+        }
+        /* Contact Section Adjustment */
+        .contact-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .contact-card {
+            flex: 0 0 calc(50% - 20px); /* 2 cards per line with margin */
+            margin: 10px;
+            width: 96px; /* w-24 */
+            height: 96px; /* h-24 */
+        }
     </style>
 </head>
 <body class="bg-black text-white">
     <!-- Navbar -->
     <nav class="bg-green-600 p-4 fixed w-full top-0 z-10 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold">Abdul Basit Attique</div>
+            <div class="text-xl font-bold">AB</div>
             <ul class="flex space-x-6">
-                <li><a href="#about" class="text-white font-semibold hover:text-green-300">About</a></li>
                 <li><a href="#education" class="text-white font-semibold hover:text-green-300">Education</a></li>
                 <li><a href="#experience" class="text-white font-semibold hover:text-green-300">Experience</a></li>
                 <li><a href="#skills" class="text-white font-semibold hover:text-green-300">Skills</a></li>
@@ -101,7 +141,7 @@
     <!-- Hero Section -->
     <section id="hero" class="pt-24 pb-12 bg-black text-center">
         <div class="container mx-auto flex items-center">
-            <img src="../pic1.jpg" alt="Abdul Basit Attique" class="w-90 h-80 rounded-lg ml-4 mr-16 bounce" onerror="this.onerror=null; this.src='https://via.placeholder.com/128'; console.log('Image load error: ', this.src, ' - 404 detected');">
+            <img src="./pic1.jpg" alt="Abdul Basit Attique" class="w-90 h-80 rounded-lg ml-4 mr-16 bounce" onerror="this.onerror=null; this.src='https://via.placeholder.com/128'; console.log('Image load error: ', this.src, ' - 404 detected');">
             <div class="text-center bounce">
                 <h1 class="text-4xl font-bold text-green-500">Hi I'm Abdul Basit Attique</h1>
                 <p class="mt-4 max-w-2xl">
@@ -199,33 +239,36 @@
         <!-- Contact -->
         <section id="contact" class="bg-black p-6 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold text-green-500 border-b-2 border-green-500 pb-2">Contact</h2>
-            <div class="mt-4 flex flex-wrap justify-center" style="width: 100%; max-width: 960px;">
-                <div class="contact-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
-                    <a href="https://mail.google.com/mail/u/2/#inbox" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
-                        <i class="fas fa-envelope text-2xl mb-2"></i>
-                        <p class="text-sm">Gmail</p>
-                    </a>
+            <div class="mt-4">
+                <div class="contact-row">
+                    <div class="contact-card p-4 rounded-lg text-center w-24 h-24 flex flex-col items-center justify-center m-2">
+                        <a href="https://mail.google.com/mail/u/2/#inbox" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
+                            <i class="fas fa-envelope text-2xl mb-2"></i>
+                            <p class="text-sm">Gmail</p>
+                        </a>
+                    </div>
+                    <div class="contact-card p-4 rounded-lg text-center w-24 h-24 flex flex-col items-center justify-center m-2">
+                        <a href="https://www.linkedin.com/in/abdul-basit-attique-55061a370/" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
+                            <i class="fab fa-linkedin-in text-2xl mb-2"></i>
+                            <p class="text-sm">LinkedIn</p>
+                        </a>
+                    </div>
                 </div>
-                <div class="contact-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
-                    <a href="https://www.linkedin.com/in/abdul-basit-attique-55061a370/" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
-                        <i class="fab fa-linkedin-in text-2xl mb-2"></i>
-                        <p class="text-sm">LinkedIn</p>
-                    </a>
-                </div>
-                <div class="contact-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
-                    <a href="https://github.com/abdulbasit469" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
-                        <i class="fab fa-github text-2xl mb-2"></i>
-                        <p class="text-sm">GitHub</p>
-                    </a>
-                </div>
-                <div class="contact-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
-                    <a href="https://www.fiverr.com/s/1qxdEwK" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
-                        <span class="fiverr-letter">F</span>
-                        <p class="text-sm">Fiverr</p>
-                    </a>
+                <div class="contact-row">
+                    <div class="contact-card p-4 rounded-lg text-center w-24 h-24 flex flex-col items-center justify-center m-2">
+                        <a href="https://github.com/abdulbasit469" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
+                            <i class="fab fa-github text-2xl mb-2"></i>
+                            <p class="text-sm">GitHub</p>
+                        </a>
+                    </div>
+                    <div class="contact-card p-4 rounded-lg text-center w-24 h-24 flex flex-col items-center justify-center m-2">
+                        <a href="https://www.fiverr.com/abdul__basit20?public_mode=true" class="text-green-500 hover:text-green-300 flex flex-col items-center" target="_blank">
+                            <span class="fiverr-letter">F</span>
+                            <p class="text-sm">Fiverr</p>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
         </section>
 
         <!-- Recommendations -->
@@ -247,9 +290,26 @@
 
     <!-- Footer -->
     <footer class="bg-green-600 p-4 text-center">
-        <p>© 2025 Abdul Basit Attique | Email: abdulbasitattique89@gmail.com | Phone: +92 333-4602156</p>
+        <p>© 2025 Abdul Basit Attique | Email: abdulbasitattique89@example.com | Phone: +92 333-4602156</p>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
     <script src="script.js"></script>
+    <script>
+        // Scroll to Top Button Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('active');
+            } else {
+                scrollToTopBtn.classList.remove('active');
+            }
+        });
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
