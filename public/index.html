@@ -113,7 +113,6 @@
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
-            flex-wrap: wrap;
         }
         .contact-card {
             flex: 0 0 calc(50% - 20px);
@@ -123,8 +122,29 @@
         }
         /* Mobile-specific adjustments */
         @media (max-width: 640px) {
-            .container {
-                padding: 0 10px;
+            .navbar-toggle {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #1a202c;
+                padding: 1rem;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 0.5rem 0;
+            }
+            .nav-menu a {
+                color: #fff;
             }
             #hero {
                 flex-direction: column;
@@ -142,11 +162,6 @@
                 font-size: 1rem;
                 max-width: 100%;
             }
-            .skill-card {
-                flex: 0 0 calc(50% - 16px);
-                width: 120px;
-                height: 120px;
-            }
             .contact-row {
                 flex-direction: column;
                 align-items: center;
@@ -157,17 +172,16 @@
                 height: 120px;
                 margin: 10px 0;
             }
-            nav ul {
+            /* Skills cards stack vertically on mobile */
+            #skills .flex {
                 flex-direction: column;
-                text-align: center;
-                padding-top: 10px;
+                align-items: center;
             }
-            nav ul li {
-                margin: 5px 0;
-            }
-            .recommendation-card {
-                width: 200px;
-                height: 200px;
+            .skill-card {
+                flex: 0 0 100%;
+                width: 150px;
+                height: 150px;
+                margin: 10px 0;
             }
         }
     </style>
@@ -177,7 +191,10 @@
     <nav class="bg-green-600 p-4 fixed w-full top-0 z-10 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <div class="text-xl font-bold">AB</div>
-            <ul class="flex space-x-6">
+            <div class="md:hidden">
+                <span class="navbar-toggle">☰</span>
+            </div>
+            <ul class="nav-menu flex space-x-6">
                 <li><a href="#education" class="text-white font-semibold hover:text-green-300">Education</a></li>
                 <li><a href="#experience" class="text-white font-semibold hover:text-green-300">Experience</a></li>
                 <li><a href="#skills" class="text-white font-semibold hover:text-green-300">Skills</a></li>
@@ -359,6 +376,13 @@
         });
         scrollToTopBtn.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Navbar Toggle Functionality
+        const toggleButton = document.querySelector('.navbar-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        toggleButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
     </script>
 </body>
