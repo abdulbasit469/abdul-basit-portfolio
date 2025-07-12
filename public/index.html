@@ -113,12 +113,62 @@
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
+            flex-wrap: wrap;
         }
         .contact-card {
-            flex: 0 0 calc(50% - 20px); /* 2 cards per line with margin */
+            flex: 0 0 calc(50% - 20px);
             margin: 10px;
-            width: 96px; /* w-24 */
-            height: 96px; /* h-24 */
+            width: 96px;
+            height: 96px;
+        }
+        /* Mobile-specific adjustments */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 10px;
+            }
+            #hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            #hero img {
+                width: 150px;
+                height: auto;
+                margin: 0 auto 20px;
+            }
+            #hero h1 {
+                font-size: 2rem;
+            }
+            #hero p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+            .skill-card {
+                flex: 0 0 calc(50% - 16px);
+                width: 120px;
+                height: 120px;
+            }
+            .contact-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-card {
+                flex: 0 0 100%;
+                width: 120px;
+                height: 120px;
+                margin: 10px 0;
+            }
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 10px;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .recommendation-card {
+                width: 200px;
+                height: 200px;
+            }
         }
     </style>
 </head>
