@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
+        
         .bounce {
             animation: bounce 2s infinite;
         }
@@ -121,35 +122,52 @@
             width: 96px;
             height: 96px;
         }
+        @media (max-width: 768px) {
+        .navbar-toggle {
+            display: block;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         .nav-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #1a202c !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: 0 !important;
+        }
+
+        .nav-menu.active {
             display: flex;
         }
-        @media (max-width: 768px) {
-            .navbar-toggle {
-                display: block;
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: #1a202c;
-                padding: 1rem;
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .nav-menu li {
-                margin: 0.5rem 0;
-            }
-            .nav-menu a {
-                color: #fff;
-            }
+
+        .nav-menu li {
+            list-style: none !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
         }
+
+        .nav-menu a {
+            color: #fff !important;
+            display: block !important;
+            padding: 0.75rem 1rem !important;
+            width: 100% !important;
+            text-align: left !important;
+            box-sizing: border-box !important;
+            margin: 0 !important;
+            font-size: 1.1rem !important;
+            line-height: 1.2 !important;
+            border: 0 !important;
+            outline: none !important; /* Remove any outline */
+        }
+    }
     </style>
 </head>
 <body class="bg-black text-white">
