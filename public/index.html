@@ -113,15 +113,18 @@
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
+            flex-wrap: wrap;
         }
         .contact-card {
-            flex: 0 0 calc(50% - 20px);
+            flex: 1 1 calc(50% - 20px);
             margin: 10px;
             width: 96px;
             height: 96px;
         }
-        /* Mobile-specific adjustments */
-        @media (max-width: 640px) {
+        .nav-menu {
+            display: flex;
+        }
+        @media (max-width: 768px) {
             .navbar-toggle {
                 display: block;
                 font-size: 1.5rem;
@@ -145,43 +148,6 @@
             }
             .nav-menu a {
                 color: #fff;
-            }
-            #hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            #hero img {
-                width: 150px;
-                height: auto;
-                margin: 0 auto 20px;
-            }
-            #hero h1 {
-                font-size: 2rem;
-            }
-            #hero p {
-                font-size: 1rem;
-                max-width: 100%;
-            }
-            .contact-row {
-                flex-direction: column;
-                align-items: center;
-            }
-            .contact-card {
-                flex: 0 0 100%;
-                width: 120px;
-                height: 120px;
-                margin: 10px 0;
-            }
-            /* Skills cards stack vertically on mobile */
-            #skills .flex {
-                flex-direction: column;
-                align-items: center;
-            }
-            .skill-card {
-                flex: 0 0 100%;
-                width: 150px;
-                height: 150px;
-                margin: 10px 0;
             }
         }
     </style>
@@ -207,8 +173,8 @@
 
     <!-- Hero Section -->
     <section id="hero" class="pt-24 pb-12 bg-black text-center">
-        <div class="container mx-auto flex items-center">
-            <img src="./pic1.jpg" alt="Abdul Basit Attique" class="w-90 h-80 rounded-lg ml-4 mr-16 bounce" onerror="this.onerror=null; this.src='https://via.placeholder.com/128'; console.log('Image load error: ', this.src, ' - 404 detected');">
+        <div class="container mx-auto flex flex-col items-center">
+            <img src="./pic1.jpg" alt="Abdul Basit Attique" class="w-90 h-80 rounded-lg mb-4 bounce" onerror="this.onerror=null; this.src='https://via.placeholder.com/128'; console.log('Image load error: ', this.src, ' - 404 detected');">
             <div class="text-center bounce">
                 <h1 class="text-4xl font-bold text-green-500">Hi I'm Abdul Basit Attique</h1>
                 <p class="mt-4 max-w-2xl">
@@ -253,36 +219,36 @@
         <!-- Skills -->
         <section id="skills" class="bg-black p-6 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold text-green-500 border-b-2 border-green-500 pb-2">Skills</h2>
-            <div class="mt-4 flex flex-wrap justify-center" style="width: 100%; max-width: 960px;">
-                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+            <div class="mt-4 flex flex-wrap justify-center gap-4" style="width: 100%; max-width: 960px;">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center">
                     <i class="fas fa-code text-2xl mb-2"></i>
                     <p class="text-sm">Python</p>
                 </div>
-                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center">
                     <i class="fas fa-code text-2xl mb-2"></i>
                     <p class="text-sm">C++</p>
                 </div>
-                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center">
                     <i class="fab fa-html5 text-2xl mb-2"></i>
                     <p class="text-sm">HTML5</p>
                 </div>
-                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center">
                     <i class="fas fa-database text-2xl mb-2"></i>
                     <p class="text-sm">SQL</p>
                 </div>
-                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center">
                     <i class="fab fa-css3-alt text-2xl mb-2"></i>
                     <p class="text-sm">CSS</p>
                 </div>
-                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center">
                     <i class="fab fa-js text-2xl mb-2"></i>
                     <p class="text-sm">JavaScript</p>
                 </div>
-                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center">
                     <i class="fab fa-react text-2xl mb-2"></i>
                     <p class="text-sm">ReactJS</p>
                 </div>
-                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center m-2" style="flex: 0 0 calc(33.33% - 16px);">
+                <div class="skill-card p-4 rounded-lg text-center w-32 h-32 flex flex-col items-center justify-center">
                     <i class="fab fa-wordpress text-2xl mb-2"></i>
                     <p class="text-sm">WordPress</p>
                 </div>
